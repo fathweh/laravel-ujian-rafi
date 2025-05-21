@@ -13,8 +13,8 @@ class Produk extends Model
     public $timestamp = true;
 
     public function deleteImage(){
-        if ($this->foto && file_exists(public_path('storage/sepatu' . $this->foto))) {
-            return unlink(public_path('storage/sepatu' . $this->foto));
+        if ($this->foto && file_exists(public_path('storage/produk' . $this->foto))) {
+            return unlink(public_path('storage/produk' . $this->foto));
         }
     }
 }

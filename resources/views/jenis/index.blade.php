@@ -31,37 +31,13 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">Sepatu Bekas Store </div>
-            </a>
+           
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ route('home')}}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-
-             <li class="nav-item active">
-                <a class="nav-link" href="{{ route('sepatu.index')}}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Sepatu</span></a>
-
-                   
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('produk.index')}}">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Produk</span></a>
-            </li>
-            </li>
+            @include ('layouts.components.sidebar')
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -123,7 +99,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Daftar Sepatu
-                    <a href="{{ route('sepatu.create') }}" class="btn btn-outline-primary btn-sm" 
+                    <a href="{{ route('jenis.create') }}" class="btn btn-outline-primary btn-sm" 
                        style="float: right">Tambah</a>
                 </div>
 
@@ -138,26 +114,21 @@
                         <table class="table">
                             <thead>
                                 <th>No</th>
-                                <th>Nama Sepatu</th>
-                                <th>Foto</th>
+                                <th>Nama jenis</th>
                                 <th>Aksi</th>
                             </thead>
                             <tbody>
-                                @foreach ($sepatu as $data)
+                                @foreach ($jenis as $data)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $data->nama_sepatu }}</td>
+                                        <td>{{ $data->nama_jenis }}</td>
                                         <td>
-                                            <img src="{{ asset('storage/sepatu/' . $data->foto) }}" alt=""
-                                                 style="width: 50px; height:50px;">
-                                        </td>
-                                        <td>
-                                            <form action="{{ route('sepatu.destroy', $data->id) }}" method="post">
+                                            <form action="{{ route('jenis.destroy', $data->id) }}" method="post">
                                                 @method('delete')
                                                 @csrf
-                                                <a href="{{ route('sepatu.show', $data->id) }}" 
+                                                <a href="{{ route('jenis.show', $data->id) }}" 
                                                    class="btn btn-warning btn-sm">Show</a>
-                                                <a href="{{ route('sepatu.edit', $data->id) }}" 
+                                                <a href="{{ route('jenis.edit', $data->id) }}" 
                                                    class="btn btn-success btn-sm">Edit</a>
                                                 <button type="submit" class="btn btn-sm btn-danger"
                                                     onclick="return confirm('Apakah Anda yakin?')">Delete</button>

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SepatuController;
+use App\Http\Controllers\JenisController;
 use App\Http\Controllers\MerkController;
 use App\Http\Controllers\ProdukController;
 
@@ -16,13 +16,11 @@ use App\Http\Controllers\ProdukController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\FronController::class, 'index']);
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('sepatu',SepatuController::class);
+Route::resource('jenis',JenisController::class);
 Route::resource('merk',MerkController::class);
 Route::resource('produk',ProdukController::class);

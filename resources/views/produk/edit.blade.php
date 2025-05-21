@@ -151,14 +151,14 @@
 
                          <div class="mb-3">
                             <label for="">Ganti Foto</label>
-                            @if ($deskripsi->foto)
+                            @if ($produk->foto)
                                 <div class="mb-2">
-                                    <img src="{{ Storage::url('deskripsi/' . $deskripsi->foto) }}" alt="Foto deskripsi" 
+                                    <img src="{{ Storage::url('produk/' . $produk->foto) }}" alt="Foto Produk" 
                                          class="img-thumbnail" width="150">
                                 </div>
                             @endif
                             <input type="file" class="form-control @error('foto') is-invalid @enderror" 
-                                   name="foto" value="{{$deskripsi->foto}}">
+                                   name="foto" value="{{$produk->foto}}">
                             @error('foto')
                                 <div class="invalid-feedback">{{$message}}</div>
                             @enderror

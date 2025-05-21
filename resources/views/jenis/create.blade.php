@@ -103,41 +103,24 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container">
+               <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">Jenis sepatu</div>
 
                 <div class="card-body">
-                    <form action="{{route('sepatu.update', $sepatu->id)}}" method="post" enctype="multipart/form-data">
-                        @method('put')
+                    <form action="{{ route('jenis.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <label for="">Nama Sepatu</label>
-                            <input type="text" class="form-control @error('nama_sepatu') is-invalid @enderror"
-                                   name="nama_sepatu" value="{{$sepatu->nama_sepatu}}">
-                            @error('nama_sepatu')
-                                <div class="invalid-feedback">{{$message}}</div>
+                            <label for="nama_jenis">Nama sepatu</label>
+                            <input type="text" class="form-control @error('nama_jenis') is-invalid @enderror" name="nama_jenis">
+                            @error('nama_jenis')
+                                <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
 
                         
-
-                        <div class="mb-3">
-                            <label for="">Ganti Foto</label>
-                            @if ($sepatu->foto)
-                                <div class="mb-2">
-                                    <img src="{{ Storage::url('sepatu/' . $sepatu->foto) }}" alt="Foto sepatu" 
-                                         class="img-thumbnail" width="150">
-                                </div>
-                            @endif
-                            <input type="file" class="form-control @error('foto') is-invalid @enderror" 
-                                   name="foto" value="{{$sepatu->foto}}">
-                            @error('foto')
-                                <div class="invalid-feedback">{{$message}}</div>
-                            @enderror
-                        </div>
 
                         <div class="mb-3">
                             <button type="submit" class="btn btn-success">Simpan</button>
@@ -189,21 +172,21 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset ('admin/vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{ asset ('admin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ asset('admin/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{ asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="{{ asset ('admin/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+    <script src="{{ asset('admin/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="{{ asset ('admin/js/sb-admin-2.min.js')}}"></script>
+    <script src="{{ asset('admin/js/sb-admin-2.min.js')}}"></script>
 
     <!-- Page level plugins -->
-    <script src="{{ asset ('admin/vendor/chart.js/Chart.min.js')}}"></script>
+    <script src="{{ asset('admin/vendor/chart.js/Chart.min.js')}}"></script>
 
     <!-- Page level custom scripts -->
-    <script src="{{ asset ('admin/js/demo/chart-area-demo.js')}}"></script>
-    <script src="{{ asset ('
+    <script src="{{ asset('admin/js/demo/chart-area-demo.js')}}"></script>
+   
     
     
     

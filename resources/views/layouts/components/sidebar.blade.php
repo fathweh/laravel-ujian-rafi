@@ -19,9 +19,9 @@
             </li>
 
              <li class="nav-item">
-                <a class="nav-link" href="{{route('sepatu.index')}}">
+                <a class="nav-link" href="{{route('jenis.index')}}">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Sepatu</span></a>
+                    <span>Jenis</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
@@ -29,6 +29,12 @@
                 <a class="nav-link" href="{{route('produk.index')}}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Produk</span></a>
+            </li>
+
+             <li class="nav-item">
+                <a class="nav-link" href="{{route('merk.index')}}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Merk</span></a>
             </li>
 
 

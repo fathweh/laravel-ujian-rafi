@@ -115,21 +115,10 @@
                     <table class="table table-bordered">
                         <tr>
                             <th>Nama Produk</th>
-                            <td>{{ $sepatu->nama_sepatu }}</td>
-                        </tr>
-                        <tr>
-                            <th>Foto</th>
-                            <td>
-                                @if ($sepatu->foto)
-                                    <img src="{{ Storage::url('sepatu/' . $sepatu->foto) }}" alt="Foto Produk" 
-                                         class="img-thumbnail" width="150">
-                                @else
-                                    <p>Tidak ada foto</p>
-                                @endif
-                            </td>
+                            <td>{{ $jenis->nama_jenis }}</td>
                         </tr>
                     </table>
-                    <a href="{{ route('sepatu.index') }}" class="btn btn-secondary">Kembali</a>
+                    <a href="{{ route('jenis.index') }}" class="btn btn-secondary">Kembali</a>
                 </div>
             </div>
         </div>

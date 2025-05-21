@@ -36,6 +36,13 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'nama_produk' => 'required|unique:produks',
+             'foto' => 'required|mimes:jpg,jpeg,png|max:9999',
+             'deskripsi' => 'required',
+             'harga' => 'required|numeric:produks',
+             'stok' => 'required|numeric:produks',
+        ]);
         $produk = new Produk();
         $produk->nama_produk = $request->nama_produk;
         $produk->deskripsi = $request->deskripsi;
@@ -45,8 +52,8 @@ class ProdukController extends Controller
         if ($request->hasFile('foto')) {
             $img = $request->file('foto');
             $name = rand(1000,9999) . $img->getClientOriginalName();
-            $img->move('storage/sepatu', $name);
-            $sepatu->foto = $name;
+            $img->move('storage/produk', $name);
+            $produk->foto = $name;
         }
 
 
@@ -87,6 +94,10 @@ class ProdukController extends Controller
      */
     public function update(Request $request, $id)
     {
+         $validated = $request->validate([
+            'nama_produk' => 'required|unique:produks',
+             'foto' => 'required|mimes:jpg,jpeg,png|max:9999',
+        ]);
         $produk = Produk::findOrFail($id);
         $produk->nama_produk = $request->nama_produk;
         $produk->deskripsi = $request->deskripsi;

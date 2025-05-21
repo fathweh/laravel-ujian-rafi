@@ -103,30 +103,28 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-               <div class="container">
+                <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Sepatu</div>
+                <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    <form action="{{ route('sepatu.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('jenis.update', $jenis->id)}}" method="post" enctype="multipart/form-data">
+                        @method('put')
                         @csrf
                         <div class="mb-3">
-                            <label for="nama_sepatu">Nama sepatu</label>
-                            <input type="text" class="form-control @error('nama_sepatu') is-invalid @enderror" name="nama_sepatu">
+                            <label for="">Nama Sepatu</label>
+                            <input type="text" class="form-control @error('nama_sepatu') is-invalid @enderror"
+                                   name="nama_sepatu" value="{{$jenis->nama_sepatu}}">
                             @error('nama_sepatu')
-                                <div class="invalid-feedback">{{ $message }}</div>
+                                <div class="invalid-feedback">{{$message}}</div>
                             @enderror
                         </div>
 
-                        <div class="mb-3">
-                            <label for="foto">Foto</label>
-                            <input type="file" class="form-control @error('foto') is-invalid @enderror" name="foto" id="">
-                            @error('foto')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
+                        
+
+                        
 
                         <div class="mb-3">
                             <button type="submit" class="btn btn-success">Simpan</button>

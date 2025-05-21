@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Merk;
+use App\Models\Jenis;
 
-class MerkController extends Controller
+class JenisController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class MerkController extends Controller
      */
     public function index()
     {
-        $merk = Merk::all();
-        return view('merk.index', compact('merk'));
+        $jenis = Jenis::all();
+        return view('jenis.index', compact('jenis'));
     }
 
     /**
@@ -25,7 +25,9 @@ class MerkController extends Controller
      */
     public function create()
     {
-        return view('merk.create');
+        return view('jenis.create');
+
+        
     }
 
     /**
@@ -36,14 +38,15 @@ class MerkController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'nama_merk' => 'required|unique:merks',
-        ]);
-        $merk = new Merk();
-        $merk->nama_merk = $request->nama_merk;
+       
+        $jenis = new Jenis();
+        $jenis->nama_jenis = $request->nama_jenis;
+       
 
-        $merk->save();
-        return redirect()->route('merk.index')->with('success', 'data berhasil disimpan');
+        
+
+        $jenis->save();
+        return redirect()->route('jenis.index')->with('success', 'data berhasil disimpan');
     }
 
     /**
@@ -54,8 +57,8 @@ class MerkController extends Controller
      */
     public function show($id)
     {
-        $merk = Merk::findOrFail($id);
-        return view('merk.show', compact('merk'));
+        $jenis = Jenis::findOrFail($id);
+        return view('jenis.show', compact('jenis'));
     }
 
     /**
@@ -66,8 +69,8 @@ class MerkController extends Controller
      */
     public function edit($id)
     {
-        $merk = Merk::findOrFail($id);
-        return view('merk.edit', compact('merk'));
+        $jenis = Jenis::findOrFail($id);
+        return view('jenis.edit', compact('jenis'));
     }
 
     /**
@@ -80,10 +83,11 @@ class MerkController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'nama_merk' => 'required|unique:merks',
+            'nama_jenis' => 'required|unique:jenis',
+             
         ]);
-        $merk = Merk::findOrFail($id);
-        $merk->nama_merk = $request->nama_merk;
+        $jenis = Jenis::findOrFail($id);
+        $jenis->nama_merk = $request->nama_merk;
     }
 
     /**
@@ -94,11 +98,11 @@ class MerkController extends Controller
      */
     public function destroy($id)
     {
-        $merk = Merk::findOrFail($id);
+        $jenis = Jenis::findOrFail($id);
        
        
 
-        $merk->delete();
-        return redirect()->route('merk.index')->with('success', 'data berhasil dihapus');
+        $jenis->delete();
+        return redirect()->route('jenis.index')->with('success', 'data berhasil dihapus');
     }
 }

@@ -121,9 +121,9 @@
                         </div>
 
                          <div class="mb-3">
-                            <label for="nama_produk">Deskripsi </label>
-                            <input type="text area" class="form-control @error('nama_produk') is-invalid @enderror" name="deskripsi ">
-                            @error('nama_produk')
+                            <label for="deskripsi">Deskripsi </label>
+                            <textarea class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi"></textarea>
+                            @error('deskripsi')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
